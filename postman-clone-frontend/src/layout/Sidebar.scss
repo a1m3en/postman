@@ -1,0 +1,390 @@
+@import '../styles/variables';
+
+// ===================================
+// 🎯 SIDEBAR COMPONENT
+// ===================================
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $sidebar-width;
+  height: 100vh;
+  background-color: $background-light-secondary;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  font-family: $font-family-primary;
+  z-index: 1000;
+}
+
+// ===================================
+// 📋 SIDEBAR HEADER
+// ===================================
+
+.sidebar-header {
+  padding: $spacing-lg;
+  border-bottom: 1px solid $border-light;
+  background-color: $background-light;
+  
+  h1 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $text-light-primary;
+    margin: 0;
+  }
+}
+
+// ===================================
+// 📦 SIDEBAR SECTIONS
+// ===================================
+
+.sidebar-section {
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid $border-light;
+  
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-light-secondary;
+    margin: 0 0 $spacing-md 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+// ===================================
+// 🔘 NEW REQUEST BUTTON
+// ===================================
+
+.new-request-btn {
+  width: 100%;
+  justify-content: center;
+  padding: $spacing-md;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: $border-radius-md;
+  transition: all $transition-fast;
+  
+  &:hover:not(:disabled) {
+    background-color: $primary-dark;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+// ===================================
+// 📄 SIDEBAR CONTENT
+// ===================================
+
+.sidebar-content {
+  padding-left: $spacing-lg;
+}
+
+.empty-state {
+  color: $text-light-muted;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-md;
+  font-style: italic;
+}
+
+.empty-state-small {
+  color: $text-light-muted;
+  font-size: $font-size-xs;
+  margin: $spacing-xs 0;
+  font-style: italic;
+  padding-left: $spacing-md;
+}
+
+// ===================================
+// 📁 COLLECTIONS
+// ===================================
+
+.collections-list {
+  margin-bottom: $spacing-md;
+}
+
+.collection-item {
+  margin-bottom: $spacing-xs;
+}
+
+.collection-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-xs 0;
+}
+
+.collection-toggle {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  background: none;
+  border: none;
+  color: $text-light-primary;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  padding: $spacing-xs;
+  border-radius: $border-radius-sm;
+  transition: background-color $transition-fast;
+  
+  &:hover {
+    background-color: $hover-bg-light;
+  }
+  
+  span {
+    font-weight: $font-weight-medium;
+  }
+}
+
+.collection-actions {
+  display: flex;
+  gap: $spacing-xs;
+}
+
+.btn--icon {
+  background: none;
+  border: none;
+  color: $text-light-secondary;
+  cursor: pointer;
+  padding: $spacing-xs;
+  border-radius: $border-radius-sm;
+  transition: all $transition-fast;
+  
+  &:hover {
+    color: $error-color;
+    background-color: rgba($error-color, 0.1);
+  }
+}
+
+.collection-content {
+  margin-left: $spacing-lg;
+  border-left: 1px solid $border-light;
+  padding-left: $spacing-md;
+  margin-top: $spacing-xs;
+}
+
+.request-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-xs;
+  border-radius: $border-radius-sm;
+  transition: background-color $transition-fast;
+  
+  &:hover {
+    background-color: $hover-bg-light;
+  }
+}
+
+.request-name {
+  font-size: $font-size-xs;
+  color: $text-light-secondary;
+  font-weight: $font-weight-medium;
+}
+
+// ===================================
+// 📋 METHOD BADGES
+// ===================================
+
+.method-badge {
+  font-size: 10px;
+  font-weight: $font-weight-bold;
+  padding: 2px 6px;
+  border-radius: $border-radius-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  &.method-get {
+    background-color: #10b981;
+    color: white;
+  }
+  
+  &.method-post {
+    background-color: #f59e0b;
+    color: white;
+  }
+  
+  &.method-put {
+    background-color: #3b82f6;
+    color: white;
+  }
+  
+  &.method-delete {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  &.method-patch {
+    background-color: #8b5cf6;
+    color: white;
+  }
+}
+
+// ===================================
+// 🕐 HISTORY
+// ===================================
+
+.history-list {
+  margin-bottom: $spacing-md;
+}
+
+.history-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  border-radius: $border-radius-sm;
+  transition: background-color $transition-fast;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $hover-bg-light;
+  }
+}
+
+.history-method {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.history-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.history-url {
+  font-size: $font-size-xs;
+  color: $text-light-primary;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.history-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-xs;
+}
+
+.history-time {
+  font-size: 10px;
+  color: $text-light-muted;
+}
+
+.status-badge {
+  font-size: 10px;
+  font-weight: $font-weight-bold;
+  padding: 1px 4px;
+  border-radius: $border-radius-sm;
+  
+  &.status-2xx {
+    background-color: #10b981;
+    color: white;
+  }
+  
+  &.status-3xx {
+    background-color: #f59e0b;
+    color: white;
+  }
+  
+  &.status-4xx, &.status-5xx {
+    background-color: #ef4444;
+    color: white;
+  }
+}
+
+// ===================================
+// 🔘 BUTTON VARIATIONS
+// ===================================
+
+.btn--small {
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-xs;
+  border-radius: $border-radius-sm;
+}
+
+.btn--secondary {
+  background-color: $background-light-tertiary;
+  color: $text-light-primary;
+  border: 1px solid $border-light;
+  
+  &:hover:not(:disabled) {
+    background-color: $hover-bg-light;
+    border-color: $border-light-hover;
+  }
+}
+
+// ===================================
+// 📱 RESPONSIVE DESIGN
+// ===================================
+
+@media (max-width: $breakpoint-md) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid $border-light;
+  }
+}
+
+// ===================================
+// 🎨 HOVER EFFECTS
+// ===================================
+
+.sidebar-section {
+  transition: background-color $transition-fast;
+  
+  &:hover {
+    background-color: rgba($primary-color, 0.02);
+  }
+}
+
+// ===================================
+// 🎯 FOCUS STATES
+// ===================================
+
+.btn:focus {
+  outline: 2px solid $focus-color;
+  outline-offset: 2px;
+}
+
+// ===================================
+// 🎨 LOADING STATE
+// ===================================
+
+.new-request-btn:disabled {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: $spacing-sm;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
