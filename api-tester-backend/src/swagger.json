@@ -1,0 +1,52 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Tester",
+    "version": "1.0.0",
+    "description": "Send and test API requests"
+  },
+  "paths": {
+    "/api/test/send": {
+      "post": {
+        "summary": "Forward and test API request",
+        "description": "Send HTTP request and get the response back",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "method": { "type": "string", "example": "GET" },
+                  "url": { "type": "string", "example": "https://jsonplaceholder.typicode.com/posts/1" },
+                  "headers": { "type": "object" },
+                  "body": { "type": ["object", "null"] }
+                },
+                "required": ["method", "url"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "integer" },
+                    "statusText": { "type": "string" },
+                    "headers": { "type": "object" },
+                    "data": { "type": "object" },
+                    "time": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
